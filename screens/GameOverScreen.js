@@ -10,9 +10,14 @@ const GameOverScreen = props => {
       <TitleText>The Game is Over!</TitleText>
       <View style={styles.imageContainer}>
         <Image
+          fadeDuration={1000}
           style={styles.image}
           resizeMode='cover'
-          source={require('../assets/success.png')}
+          // source={require('../assets/success.png')}
+          source={{
+            uri:
+              'https://upload.wikimedia.org/wikipedia/commons/7/77/Four_Peaks_Summit.JPG'
+          }}
         />
       </View>
       <BodyText>Number of rounds:{props.roundsNumber}</BodyText>
@@ -36,7 +41,7 @@ const styles = StyleSheet.create({
     width: 300,
     height: 300,
     borderRadius: 150,
-    borderWidth: 3,
+    borderWidth: 2,
     borderColor: 'gray',
     overflow: 'hidden',
     marginVertical: 30
