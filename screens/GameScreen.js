@@ -94,7 +94,7 @@ const GameScreen = props => {
         <FlatList
           keyExtractor={item => item}
           data={pastGuesses}
-          renderItem={renderListItem.bind(this, pastGuesses.length)}
+          renderItem={itemData => renderListItem(pastGuesses.length, itemData)}
           contentContainerStyle={styles.list}
         />
       </View>
