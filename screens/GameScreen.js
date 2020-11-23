@@ -8,6 +8,7 @@ import {
   Dimensions
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 import NumberContainer from '../components/NumberContainer';
 import Card from '../components/Card';
@@ -33,6 +34,9 @@ const renderListItem = (listLength, itemData) => (
 );
 
 const GameScreen = props => {
+  // ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+  // ScreenOrientation.addOrientationChangeListener
+
   const initialGuess = generateRandomBetween(1, 100, props.userChoice);
 
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
@@ -133,7 +137,12 @@ const GameScreen = props => {
     <View style={styles.screen}>
       <Text>Opponent's Guess</Text>
       <NumberContainer>{currentGuess}</NumberContainer>
-      <Card style={styles.buttonContainer}>
+      <Card
+        style={[
+          ...styles.buttonContainer,
+          { marginTop: availableHeight > 600 ? 20 : 5 }
+        ]}
+      >
         <MainButton onPress={() => nextGuessHandler('lower')}>
           <Ionicons name='md-remove' size={24} color='white' />
         </MainButton>
@@ -167,7 +176,6 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: Dimensions.get('window').height > 600 ? 20 : 5,
     width: 400,
     maxWidth: '90%'
   },
