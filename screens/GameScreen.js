@@ -137,12 +137,7 @@ const GameScreen = props => {
     <View style={styles.screen}>
       <Text>Opponent's Guess</Text>
       <NumberContainer>{currentGuess}</NumberContainer>
-      <Card
-        style={[
-          ...styles.buttonContainer,
-          { marginTop: availableHeight > 600 ? 20 : 5 }
-        ]}
-      >
+      <Card style={styles.buttonContainer}>
         <MainButton onPress={() => nextGuessHandler('lower')}>
           <Ionicons name='md-remove' size={24} color='white' />
         </MainButton>
