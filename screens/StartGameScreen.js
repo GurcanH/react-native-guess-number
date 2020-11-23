@@ -45,6 +45,7 @@ const StartGameScreen = props => {
       Dimensions.removeEventListener('change', updateLayout);
     };
   });
+
   const confirmInputHandler = () => {
     const chosenNumber = parseInt(enteredValue);
     if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
